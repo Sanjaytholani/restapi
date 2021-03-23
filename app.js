@@ -24,8 +24,8 @@ mongoose
 app.use(bodyParser.json());
 app.use(cors());
 app.get("/", (req, res) => {
-  res.send("18BLC1090");
+  res.send("Lets build a REST API");
 });
 
 app.use("/posts", postRoutes);
-app.listen(3000);
+app.listen(process.env.PORT || 8000);
