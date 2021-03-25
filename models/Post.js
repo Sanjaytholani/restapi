@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const PostSchema = mongoose.Schema({
-  title: {
+  quote: {
     type: String,
     required: true,
   },
-  description: {
+  author: {
     type: String,
     required: true,
   },

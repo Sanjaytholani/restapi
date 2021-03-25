@@ -8,8 +8,8 @@ router.get("/", (req, res) => {
 });
 router.post("/", (req, res) => {
   const post = new Post({
-    title: req.body.title,
-    description: req.body.description,
+    quote: req.body.quote,
+    author: req.body.author,
   });
   post
     .save()
@@ -18,7 +18,7 @@ router.post("/", (req, res) => {
 });
 router.get("/:postId", (req, res) => {
   Post.findById(req.params.postId)
-    .then((data) => res.json({ description: data.description }))
+    .then((data) => res.json({ author: data.author }))
     .catch((err) => res.json({ message: err }));
 });
 router.delete("/:postId", (req, res) => {
@@ -29,7 +29,7 @@ router.delete("/:postId", (req, res) => {
 router.patch("/:postId", (req, res) => {
   Post.updateOne(
     { _id: req.params.postId },
-    { $set: { title: req.body.title, description: req.body.description } }
+    { $set: { quote: req.body.quote, author: req.body.author } }
   )
     .then((data) => res.json({ message: "Post Updated" }))
     .catch((err) => res.json({ message: err }));
