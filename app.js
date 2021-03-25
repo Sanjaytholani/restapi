@@ -2,7 +2,7 @@ require("dotenv/config");
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const postRoutes = require("./routes/posts");
+const quoteRoutes = require("./routes/quote");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -27,5 +27,5 @@ app.get("/", (req, res) => {
   res.send("Lets build a REST API");
 });
 
-app.use("/posts", postRoutes);
+app.use("/quote", quoteRoutes);
 app.listen(process.env.PORT || 8000);
